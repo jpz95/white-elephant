@@ -1,0 +1,7 @@
+.app {
+  // TODO move to 'routes' since app doesn't exist.
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  background-color: $color-gray-dark;
+  color: $color-font-light;
+}

@@ -1,0 +1,45 @@
+@use "sass:map";
+
+@mixin flex-alignment($alignment-type, $alignment-property) {
+  $alignment-map: (
+    "auto": auto,
+    "center": center,
+    "start": flex-start,
+    "end": flex-end,
+    "stretch": stretch,
+    "baseline": baseline,
+  );
+
+  @if $alignment-type == "align-content" {
+    $extra-alignments: (
+      "around": space-around,
+      "between": space-between,
+      "evenly": space-evenly,
+    );
+
+    $alignment-map: map-merge($alignment-map, $extra-alignments);
+  }
+
+  // ex. `.align-items-start { align-items: flex-start }`
+  @each $modifier, $value in $alignment-map {
+    .#{$alignment-type}-#{$modifier} {
+      #{$alignment-property}: $value;
+    }
+  }
+}
+
+.d-flex {
+    display: flex;
+}
+
+.noWrap {
+  flex-wrap: nowrap;
+}
+
+@include flex-alignment("align-items", align-items);
+@include flex-alignment("align-self", align-self);
+@include flex-alignment("align-content", align-content);
+
+@include flex-alignment("justify", justify-content);
+@include flex-alignment("justify-items", justify-items);
+@include flex-alignment("justify-self", justify-self);

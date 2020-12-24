@@ -1,0 +1,102 @@
+// smartphones, iPhone, portrait 480x320 phones
+@mixin screen-xs {
+  @media (min-width: 0px) { @content; }
+}
+
+// portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide.
+@mixin screen-sm {
+  @media (min-width: 480px) { @content; }
+}
+
+// portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones
+@mixin screen-md {
+  @media (min-width: 768px) { @content; }
+}
+
+// tablet, landscape iPad, lo-res laptops ands desktops
+@mixin screen-lg {
+  @media (min-width: 992px) { @content; }
+}
+
+// hi-res laptops and desktops
+@mixin screen-xl {
+  @media (min-width: 1200px) { @content; }
+}
+
+@mixin screen-size($size) {
+  @if $size == xs {
+      @include screen-xs { @content; }
+  }
+  @else if $size == sm {
+      @include screen-sm { @content; }
+  }
+  @else if $size == md {
+      @include screen-md { @content; }
+  }
+  @else if $size == lg {
+      @include screen-lg { @content; }
+  }
+  @else if $size == xl {
+      @include screen-xl { @content; }
+  }
+}
+
+.container {
+  display: block;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col {
+  @function column-size($col-number) {
+    @return $col-number / 12 * 100%;
+  }
+
+  @mixin generate-column($size, $col-number) {
+    @include screen-size($size) {
+      &-#{$col-number}-#{$size} {
+        // TODO is 'flex: 0 0 column-size($col-number)' better?
+        flex: column-size($col-number);
+        max-width: column-size($col-number);
+        display: unset;
+      }
+    }
+  }
+
+  // TODO is 'flex: 1 1 100%;' better?
+  flex: 1;
+
+  $screen-sizes: xs, sm, md, lg, xl;
+  @each $size in $screen-sizes {
+
+    @include screen-size($size) {
+      &-hide-#{$size} {
+        display: none;
+      }
+    }
+  }
+
+  @for $col-number from 1 through 12 {
+    &-#{$col-number} {
+      // TODO is 'flex: 0 0 column-size($col-number)' better?
+      flex: column-size($col-number);
+      max-width: column-size($col-number);
+    }
+  }
+
+  @each $size in $screen-sizes {
+    @for $col-number from 1 through 12 {
+      @include generate-column($size, $col-number);
+    }
+  }
+
+  // TODO add 'auto' def for all columns/sizes
+  &-auto {
+    // TODO is 'flex: 0 auto;' better?
+    flex: none;
+  }
+}
