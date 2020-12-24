@@ -1,0 +1,9 @@
+.position {
+  $properties: static, fixed, absolute, relative, sticky;
+
+  @each $property in $properties {
+    &-#{$property} {
+      position: $property;
+    }
+  }
+}

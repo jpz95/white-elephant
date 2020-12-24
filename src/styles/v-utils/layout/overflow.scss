@@ -1,0 +1,18 @@
+.overflow {
+  $properties: auto, hidden, visible, scroll;
+  $directions: x, y;
+
+  @each $property in $properties {
+    &-#{$property} {
+      overflow: $property;
+    }
+  }
+
+  @each $property in $properties {
+    @each $direction in $directions {
+      &-#{$direction}-#{$property} {
+        overflow-#{$direction}: $property;
+      }
+    }
+  }
+}
