@@ -1,0 +1,18 @@
+{
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": [
+    "source.fixAll.format",
+    "source.fixAll.eslint"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "files.eol": "\n",
+  "vetur.completion.tagCasing": "initial",
+  "vetur.format.defaultFormatter.html": "none",
+  "vetur.format.defaultFormatter.js": "none",
+  "vetur.validation.template": false,
+}
