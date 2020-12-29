@@ -30,6 +30,7 @@ $spacing-64: 8rem;        // ~128px
 
 // TODO how many more do we need?
 $spacing-map: (
+  "auto": auto,
   "0": $spacing-0,
   "px": $spacing-px,
   "1": $spacing-1,
