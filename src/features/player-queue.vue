@@ -33,6 +33,6 @@ export default {
 
 .playerQueueCard {
   height: 6.5em;
-  width: 6.5em;
+  width: 9em;
 }
 </style>

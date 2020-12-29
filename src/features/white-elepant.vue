@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-column position-relative">
-    <div class="flex-1">
+    <div class="flex-1 flex align-items-center justify-center">
       gifts (image or animation)
     </div>
     <div class="playerQueueContainer position-absolute flex overflow-x-auto">
