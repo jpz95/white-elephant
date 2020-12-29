@@ -6,19 +6,21 @@
     <div class="playerQueueContainer position-absolute flex overflow-x-auto">
       <player-queue />
     </div>
-    <div class="playersInPlay position-absolute">
-      current and ppl gone
+    <div class="playersInPlayContainer position-absolute flex overflow-x-auto">
+      <players-in-play />
     </div>
   </div>
 </template>
 
 <script>
 import PlayerQueue from './player-queue.vue';
+import PlayersInPlay from './players-in-play.vue';
 
 export default {
   name: 'WhiteElephant',
   components: {
     PlayerQueue,
+    PlayersInPlay,
   },
   props: {
     players: {
@@ -35,6 +37,12 @@ export default {
 <style lang="scss" scoped>
 .playerQueueContainer {
   top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.playersInPlayContainer {
+  bottom: 0;
   left: 0;
   width: 100%;
 }

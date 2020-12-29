@@ -1,9 +1,9 @@
 <template>
-  <ul class="playerQueue flex">
+  <ul class="playersInPlay flex">
     <li
       v-for="player in players"
       :key="player"
-      class="playerQueueCard"
+      class="playersInPlayCard"
     >
       {{ player }}
     </li>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'PlayerQueue',
+  name: 'PlayersInPlay',
   props: {
     players: {
       type: Array,
@@ -23,15 +23,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.playerQueue {
-  border-bottom-width: 2px;
+.playersInPlay {
+  border-top-width: 2px;
   border-right-width: 1px;
-  background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
+  background-image: linear-gradient(to top, #f5efef 0%, #c1dfc4 100%);
   border-bottom-right-radius: 16px;
-  border-color: $color-secondary-main;
+  border-color: $color-primary-main;
 }
 
-.playerQueueCard {
+.playersInPlayCard {
   height: 6.5em;
   width: 6.5em;
 }
