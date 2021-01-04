@@ -3,7 +3,7 @@
     <li
       v-for="player in players"
       :key="player"
-      class="playerQueueCard"
+      class="playerQueueCard flex justify-content-center align-items-center"
     >
       {{ player }}
     </li>

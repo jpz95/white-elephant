@@ -3,7 +3,7 @@
     <li
       v-for="player in players"
       :key="player"
-      class="playersInPlayCard"
+      class="playersInPlayCard flex justify-content-center align-items-center"
     >
       {{ player }}
     </li>
