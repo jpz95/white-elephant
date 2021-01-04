@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use './box-alignment-utils.scss' as utils;
+
+.place-content {
+  $alignment-map: map-merge(utils.$base-content-alignment-map, (
+    'start': start,
+    'end': end,
+    'stretch': stretch,
+  ));
+
+  @include utils.generate-box-alignment('place-content', $alignment-map);
+}

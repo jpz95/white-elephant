@@ -1,0 +1,7 @@
+@use './box-alignment-utils.scss' as utils;
+
+.justify-self {
+  $alignment-map: utils.$base-justify-alignment-map;
+
+  @include utils.generate-box-alignment('justify-self', $alignment-map);
+}

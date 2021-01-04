@@ -1,0 +1,43 @@
+// align-content, justify-content, and place-content have the same properties
+$base-content-alignment-map: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'between': space-between,
+  'around': space-around,
+  'evenly': space-evenly,
+);
+
+// justify-self and justify-items have the same properties
+$base-justify-alignment-map: (
+  'auto': auto,
+  'start': start,
+  'end': end,
+  'center': center,
+  'stretch': stretch,
+);
+
+// align-self and align-items have similar properties
+$base-align-alignment-map: (
+  'start': flex-start,
+  'end': flex-end,
+  'center': center,
+  'stretch': stretch,
+);
+
+// place-items and place-self have similar properties
+$base-place-alignment-map: (
+  'start': start,
+  'end': end,
+  'center': center,
+  'stretch': stretch,
+  'auto': auto,
+);
+
+@mixin generate-box-alignment($property, $alignment-map) {
+  @each $name, $value in $alignment-map {
+    &-#{$name} {
+      #{$property}: #{$value};
+    }
+  }
+}

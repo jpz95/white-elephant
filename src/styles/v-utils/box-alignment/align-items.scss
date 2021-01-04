@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use './box-alignment-utils.scss' as utils;
+
+.align-items {
+  $alignment-map: map-merge(utils.$base-align-alignment-map, (
+    'baseline': baseline,
+  ));
+
+  @include utils.generate-box-alignment('align-items', $alignment-map);
+}

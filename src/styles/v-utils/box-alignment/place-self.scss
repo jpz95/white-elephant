@@ -1,0 +1,7 @@
+@use './box-alignment-utils.scss' as utils;
+
+.place-self {
+  $alignment-map: utils.$base-place-alignment-map;
+
+  @include utils.generate-box-alignment('place-self', $alignment-map);
+}

@@ -1,0 +1,7 @@
+@use './box-alignment-utils.scss' as utils;
+
+.justify-content {
+  $alignment-map: utils.$base-content-alignment-map;
+
+  @include utils.generate-box-alignment('justify-content', $alignment-map);
+}
