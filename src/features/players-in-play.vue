@@ -25,9 +25,9 @@ export default {
 <style lang="scss" scoped>
 .playersInPlay {
   border-top-width: 2px;
-  border-left-width: 1px;
+  border-left-width: 0;
   background-image: linear-gradient(to top, #f5efef 0%, #c1dfc4 100%);
-  border-top-left-radius: 16px;
+  border-top-left-radius: 0;
   border-color: $color-primary-main;
 }
 

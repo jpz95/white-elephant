@@ -25,9 +25,9 @@ export default {
 <style lang="scss" scoped>
 .playerQueue {
   border-bottom-width: 2px;
-  border-right-width: 1px;
+  border-right-width: 0;
   background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);
-  border-bottom-right-radius: 16px;
+  border-bottom-right-radius: 0;
   border-color: $color-secondary-main;
 }
 
