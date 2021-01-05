@@ -6,7 +6,7 @@
     <div class="playerQueueContainer position-absolute flex overflow-x-auto">
       <player-queue :current-player-idx="currentPlayer" />
     </div>
-    <div class="playersInPlayContainer position-absolute flex overflow-x-auto">
+    <div class="playersInPlayContainer position-absolute flex flex-row-reverse overflow-x-auto">
       <players-in-play :current-player-idx="currentPlayer" />
     </div>
     <div
