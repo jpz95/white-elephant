@@ -1,13 +1,20 @@
 <template>
-  <div class="flex flex-column position-relative">
+  <div class="flex flex-column position-relative overflow-hidden">
     <div class="flex-1 flex align-items-center justify-content-center">
       gifts (image or animation)
     </div>
     <div class="playerQueueContainer position-absolute flex overflow-x-auto">
-      <player-queue />
+      <player-queue :current-player-idx="currentPlayer" />
     </div>
     <div class="playersInPlayContainer position-absolute flex overflow-x-auto">
-      <players-in-play />
+      <players-in-play :current-player-idx="currentPlayer" />
+    </div>
+    <div
+      class="
+        currentPlayerContainer
+        position-absolute flex align-items-center justify-content-center"
+    >
+      {{ players[currentPlayer] }}
     </div>
   </div>
 </template>
@@ -43,7 +50,16 @@ export default {
 
 .playersInPlayContainer {
   bottom: 0;
-  left: 0;
-  width: 100%;
+  right: 6.5em;
+  width: calc(100% - 6.5em);
+}
+
+.currentPlayerContainer {
+  bottom: -1.5em;
+  right: -2em;
+  width: 10em;
+  height: 10em;
+  border-radius: 100px;
+  border: 1px solid;
 }
 </style>
