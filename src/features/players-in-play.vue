@@ -1,7 +1,7 @@
 <template>
   <ul class="playersInPlay flex">
     <li
-      v-for="player in players"
+      v-for="player in playersInPlay"
       :key="player"
       class="playersInPlayCard flex justify-content-center align-items-center"
     >
@@ -17,6 +17,15 @@ export default {
     players: {
       type: Array,
       default: () => (['one', 'two', 'three', 'four']),
+    },
+    currentPlayerIdx: {
+      type: Number,
+      default: 0,
+    },
+  },
+  computed: {
+    playersInPlay() {
+      return this.players.slice(0, this.currentPlayerIdx);
     },
   },
 };
