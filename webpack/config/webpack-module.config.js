@@ -138,6 +138,15 @@ const configureFontLoader = (imageInlineSizeLimit) => ({
 module.exports = (envState) => {
   const { isEnvProduction, shouldUseSourceMap, imageInlineSizeLimit } = envState;
 
+  // SCSS variables/mixins/functions to prepend to every SCSS file
+  const sassHelpers = () => {
+    const helperFiles = [
+      '@import "~styles/i-variables/_index.scss";',
+      '@import "~styles/ii-tools/_index.scss";',
+    ];
+    return helperFiles.join('');
+  };
+
   return {
     strictExportPresence: true,
     rules: [
@@ -206,8 +215,7 @@ module.exports = (envState) => {
                     {
                       name: 'sass-loader',
                       options: {
-                        // Prepends app variables to every SCSS file
-                        prependData: '@import "~styles/i-variables/_index.scss";',
+                        prependData: sassHelpers,
                       },
                     },
                   ],
@@ -224,8 +232,7 @@ module.exports = (envState) => {
                   {
                     name: 'sass-loader',
                     options: {
-                      // Prepends app variables to every SCSS file
-                      prependData: '@import "~styles/i-variables/_index.scss";',
+                      prependData: sassHelpers,
                     },
                   },
                 ],
