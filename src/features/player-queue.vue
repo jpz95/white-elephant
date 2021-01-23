@@ -9,36 +9,19 @@
         {{ player }}
       </li>
     </ul>
-    <button
-      class="playerQueueButton"
-      @click="showMenu = !showMenu"
-    >
+    <player-menu-toggle-button :player-list="playerQueue">
       Player queue
-    </button>
-    <dropdown-menu
-      class="playerQueueDropdownMenu"
-      :open="showMenu"
-    >
-      <ul>
-        <li
-          v-for="player in playerQueue"
-          :key="player"
-          class="playerQueueMenuItem"
-        >
-          {{ player }}
-        </li>
-      </ul>
-    </dropdown-menu>
+    </player-menu-toggle-button>
   </div>
 </template>
 
 <script>
-import DropdownMenu from 'components/dropdown-menu.vue';
+import PlayerMenuToggleButton from './player-menu-toggle-button.vue';
 
 export default {
   name: 'PlayerQueue',
   components: {
-    DropdownMenu,
+    PlayerMenuToggleButton,
   },
   props: {
     players: {
@@ -50,9 +33,7 @@ export default {
       default: 0,
     },
   },
-  data: () => ({
-    showMenu: false,
-  }),
+  data: () => ({}),
   computed: {
     playerQueue() {
       return this.players.slice(this.currentPlayerIdx + 1);
@@ -62,10 +43,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include screen-xs {
-  .playerQueue {
-    display: none;
-  }
+.playerQueue {
+  display: none;
 }
 @include screen-md {
   .playerQueue {
@@ -81,42 +60,5 @@ export default {
 .playerQueueCard {
   height: 6.5em;
   width: 9em;
-}
-
-@include screen-xs {
-  .playerQueueButton {
-    display: flex;
-  }
-}
-@include screen-md {
-  .playerQueueButton {
-    display: none;
-  }
-}
-
-.playerQueueDropdownMenu {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-@include screen-sm {
-  .playerQueueDropdownMenu {
-    height: 85%;
-    width: 75%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-@include screen-md {
-  .playerQueueDropdownMenu {
-    display: none;
-  }
-  .playerQueueDropdownMenu.show {
-    display: none;
-  }
 }
 </style>
