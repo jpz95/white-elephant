@@ -14,6 +14,13 @@
         currentPlayerContainer
         position-absolute flex align-items-center justify-content-center"
     >
+      <button
+        v-if="!isLastTurn"
+        class="endTurnButton position-absolute"
+        @click="goToNextPlayer"
+      >
+        End Turn
+      </button>
       {{ players[currentPlayer] }}
     </div>
   </div>
@@ -38,6 +45,23 @@ export default {
   data: () => ({
     currentPlayer: 0,
   }),
+  computed: {
+    /**
+     * Player one gets chance to initiate the final gift exchanges. All gifts
+     * should be opened at this point. Players can continue swapping until satisfied.
+     */
+    isLastTurn() {
+      const lastPlayer = this.players.length;
+      return this.currentPlayer === lastPlayer;
+    },
+  },
+  methods: {
+    goToNextPlayer() {
+      if (!this.isLastTurn) {
+        this.currentPlayer += 1;
+      }
+    },
+  },
 };
 </script>
 
@@ -61,5 +85,9 @@ export default {
   height: 10em;
   border-radius: 100px;
   border: 1px solid;
+}
+
+.endTurnButton {
+  top: 0;
 }
 </style>
