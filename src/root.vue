@@ -1,27 +1,22 @@
 <template>
-  <div class="root flex flex-column">
-    <div>navbar (reset)</div>
-    <white-elephant class="flex-1" />
-  </div>
+  <component :is="layout">
+    <router-view />
+  </component>
 </template>
 
 <script>
-import WhiteElephant from 'features/white-elepant';
-
 export default {
   name: 'Root',
   components: {
-    WhiteElephant,
   },
-  data: () => ({}),
+  computed: {
+    layout() {
+      const routeLayoutType = this.$route.meta.layout || 'topbar';
+      return `${routeLayoutType}-layout`;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.root {
-  grid-template-rows: auto 1fr;
-  height: 100vh;
-  background-color: $color-white-main;
-  color: $text-color-black;
-}
 </style>
