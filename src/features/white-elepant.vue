@@ -3,12 +3,15 @@
     <div class="flex-1 flex align-items-center justify-content-center">
       gifts (image or animation)
     </div>
+
     <div class="playerQueueContainer position-absolute flex overflow-x-auto">
       <player-queue :current-player-idx="currentPlayer" />
     </div>
+
     <div class="playersInPlayContainer position-absolute flex flex-row-reverse overflow-x-auto">
       <players-in-play :current-player-idx="currentPlayer" />
     </div>
+
     <div
       class="
         currentPlayerContainer
@@ -23,16 +26,29 @@
       </button>
       {{ players[currentPlayer] }}
     </div>
+
+    <base-dialog
+      v-if="isLastTurn"
+      title="Last Turn"
+    >
+      The first player now has a chance to start the final chain of exchanges!
+
+      <template v-slot:buttons>
+        <button>Start!</button>
+      </template>
+    </base-dialog>
   </div>
 </template>
 
 <script>
+import BaseDialog from 'components/base-dialog.vue';
 import PlayerQueue from './player-queue.vue';
 import PlayersInPlay from './players-in-play.vue';
 
 export default {
   name: 'WhiteElephant',
   components: {
+    BaseDialog,
     PlayerQueue,
     PlayersInPlay,
   },
@@ -88,6 +104,6 @@ export default {
 }
 
 .endTurnButton {
-  top: 0;
+  top: -4px;
 }
 </style>
