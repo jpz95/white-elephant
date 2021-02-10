@@ -34,7 +34,9 @@
       The first player now has a chance to start the final chain of exchanges!
 
       <template v-slot:buttons>
-        <button>Start!</button>
+        <button @click="goToLastTurn">
+          Start!
+        </button>
       </template>
     </base-dialog>
   </div>
@@ -76,6 +78,9 @@ export default {
       if (!this.isLastTurn) {
         this.currentPlayer += 1;
       }
+    },
+    goToLastTurn() {
+      this.$router.push({ name: 'Last Turn' });
     },
   },
 };
