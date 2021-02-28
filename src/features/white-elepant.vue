@@ -1,9 +1,5 @@
 <template>
-  <div class="flex flex-column position-relative overflow-hidden">
-    <div class="flex-1 flex align-items-center justify-content-center">
-      gifts (image or animation)
-    </div>
-
+  <div class="whiteElephant flex flex-column position-relative overflow-hidden">
     <div class="playerQueueContainer position-absolute flex overflow-x-auto">
       <player-queue :current-player-idx="currentPlayer" />
     </div>
@@ -87,6 +83,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.whiteElephant {
+  background-image: url("./christmas-scene-sm.png"); // TODO make img smaller (size)
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #ffcda3; // TODO make color var
+  background-position: center center;
+}
+@include screen-md {
+  .whiteElephant {
+    background-image: url("./christmas-scene-lg.png");
+    background-size: cover;
+  }
+}
+
 .playerQueueContainer {
   top: 0;
   left: 0;
@@ -104,8 +114,16 @@ export default {
   right: -2em;
   width: 10em;
   height: 10em;
-  border-radius: 100px;
+  border-radius: 9999px;
   border: 1px solid;
+}
+@include screen-md {
+  .currentPlayerContainer {
+    width: 32em;
+    height: 32em;
+    bottom: -11em;
+    right: -7em;
+  }
 }
 
 .endTurnButton {
