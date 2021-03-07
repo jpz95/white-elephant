@@ -13,6 +13,9 @@
         currentPlayerContainer
         position-absolute flex align-items-center justify-content-center"
     >
+      <div class="container-fill" />
+      <div class="container-outer-ring" />
+      <div class="container-inner-ring" />
       <button
         v-if="!isLastTurn"
         class="endTurnButton position-absolute"
@@ -20,7 +23,7 @@
       >
         End Turn
       </button>
-      {{ players[currentPlayer] }}
+      <span>{{ players[currentPlayer] }}</span>
     </div>
 
     <base-dialog
@@ -114,16 +117,39 @@ export default {
   right: -2em;
   width: 10em;
   height: 10em;
-  border-radius: 9999px;
-  border: 1px solid;
+  border-radius: 50%;
 }
 @include screen-md {
   .currentPlayerContainer {
-    width: 32em;
-    height: 32em;
-    bottom: -11em;
-    right: -7em;
+    width: 28em;
+    height: 28em;
+    bottom: -12em;
+    right: -8em;
   }
+}
+
+.container-fill {
+  position: absolute;
+  height: calc(100% - 0.25em);
+  width: calc(100% - 0.25em);
+  border: 2em solid #6ba16c;
+  border-radius: 50%;
+}
+
+.container-outer-ring {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 0.25em solid #4e7b4e;
+  border-radius: 50%;
+}
+
+.container-inner-ring {
+  position: absolute;
+  height: calc(100% - 4em);
+  width: calc(100% - 4em);
+  border: 0.25em solid #4e7b4e;
+  border-radius: 50%;
 }
 
 .endTurnButton {
