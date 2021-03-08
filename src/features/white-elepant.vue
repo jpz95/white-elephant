@@ -113,18 +113,19 @@ export default {
 }
 
 .currentPlayerContainer {
-  bottom: -1.5em;
-  right: -2em;
-  width: 10em;
-  height: 10em;
+  top: -3.5em;
+  right: -3.5em;
+  width: 13em;
+  height: 13em;
   border-radius: 50%;
 }
 @include screen-md {
   .currentPlayerContainer {
-    width: 28em;
-    height: 28em;
+    top: initial;
     bottom: -12em;
     right: -8em;
+    width: 28em;
+    height: 28em;
   }
 }
 
@@ -132,8 +133,13 @@ export default {
   position: absolute;
   height: calc(100% - 0.25em);
   width: calc(100% - 0.25em);
-  border: 2em solid #6ba16c;
+  border: 1em solid #6ba16c;
   border-radius: 50%;
+}
+@include screen-md {
+  .container-fill {
+    border-width: 2em;
+  }
 }
 
 .container-outer-ring {
@@ -146,10 +152,17 @@ export default {
 
 .container-inner-ring {
   position: absolute;
-  height: calc(100% - 4em);
-  width: calc(100% - 4em);
+  height: calc(100% - 2em);
+  width: calc(100% - 2em);
   border: 0.25em solid #4e7b4e;
   border-radius: 50%;
+}
+@include screen-md {
+  .container-inner-ring {
+    height: calc(100% - 4em);
+    width: calc(100% - 4em);
+    border-width: 0.25em;
+  }
 }
 
 .endTurnButton {
