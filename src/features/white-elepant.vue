@@ -133,7 +133,7 @@ export default {
   position: absolute;
   height: calc(100% - 0.25em);
   width: calc(100% - 0.25em);
-  border: 1em solid #6ba16c;
+  border: 1em solid $color-primary-main;
   border-radius: 50%;
 }
 @include screen-md {
@@ -146,7 +146,7 @@ export default {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 0.25em solid #4e7b4e;
+  border: 0.25em solid $color-primary-dark;
   border-radius: 50%;
 }
 
@@ -154,7 +154,7 @@ export default {
   position: absolute;
   height: calc(100% - 2em);
   width: calc(100% - 2em);
-  border: 0.25em solid #4e7b4e;
+  border: 0.25em solid $color-primary-dark;
   border-radius: 50%;
 }
 @include screen-md {
