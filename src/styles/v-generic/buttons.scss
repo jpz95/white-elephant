@@ -1,0 +1,17 @@
+button {
+  height: 2em;
+  padding: 0 1rem;
+  border-radius: 0.25rem;
+  background-color: $color-primary-main;
+  color: $color-white-main;
+  box-shadow: $box-shadow-main;
+  font-size: 1em;
+  line-height: 2em;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  outline: 0;
+  cursor: pointer;
+  @include transition-colors;
+}

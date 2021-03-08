@@ -1,0 +1,5 @@
+@mixin transition-colors {
+  transition-duration: $transition-duration-main;
+  transition-property: $transition-property-colors;
+  transition-timing-function: $transition-ease-in-out;
+}

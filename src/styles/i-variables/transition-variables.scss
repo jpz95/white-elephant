@@ -1,0 +1,8 @@
+$transition-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+$transition-duration-main: 300ms;
+$transition-duration-slow: 500ms;
+$transition-duration-fast: 100ms;
+
+$transition-property-colors: background-color, border-color, color, fill, stroke;
+$transition-property-opacity: opacity;
