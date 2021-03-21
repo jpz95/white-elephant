@@ -1,10 +1,9 @@
-button {
+%_default-btn {
   height: 2em;
   padding: 0 1rem;
+  border-width: 1px;
+  border-style: solid;
   border-radius: 0.25rem;
-  background-color: $color-primary-main;
-  color: $color-white-main;
-  box-shadow: $box-shadow-main;
   font-size: 1em;
   line-height: 2em;
   letter-spacing: 0.5px;
@@ -14,4 +13,28 @@ button {
   outline: 0;
   cursor: pointer;
   @include transition-colors;
+}
+
+// Flat button (default)
+.btn, .btn-flat {
+  @extend %_default-btn;
+  background-color: $color-primary-main;
+  color: $color-white-main;
+  border-color: $color-primary-main;
+}
+
+// Raised button styles
+.btn-raised {
+  @extend %_default-btn;
+  box-shadow: $box-shadow-main;
+  background-color: $color-primary-main;
+  color: $color-white-main;
+  border-color: $color-primary-main;
+}
+
+.btn-outlined {
+  @extend %_default-btn;
+  background-color: $color-white-main;
+  color: $color-primary-main;
+  border-color: $color-primary-main;
 }
